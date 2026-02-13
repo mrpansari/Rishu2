@@ -24,11 +24,10 @@ body {
 /* HEART BACKGROUND */
 .heart-bg {
     position: absolute;
-    width: 450px;
-    height: 450px;
+    width: 420px;
+    height: 420px;
     background: #e47c73;
     opacity: 0.25;
-    transform: rotate(-45deg);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(-45deg);
@@ -39,37 +38,47 @@ body {
 .heart-bg::after {
     content: "";
     position: absolute;
-    width: 450px;
-    height: 450px;
+    width: 420px;
+    height: 420px;
     background: #e47c73;
     border-radius: 50%;
 }
 
 .heart-bg::before {
-    top: -225px;
+    top: -210px;
     left: 0;
 }
 
 .heart-bg::after {
-    left: 225px;
+    left: 210px;
     top: 0;
+}
+
+/* CENTER WRAPPER */
+.photo-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 60px;
+    z-index: 3;
 }
 
 /* POLAROID FRAME */
 .polaroid {
-    position: absolute;
-    width: 540px; /* frame slightly larger than image */
+    width: 340px; /* slightly larger than image */
     background: white;
-    padding: 20px 20px 70px 20px;
+    padding: 20px 20px 50px 20px;
     box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-    z-index: 3;
     transition: 0.3s ease;
+    position: relative;
 }
 
-/* IMAGE FIXED SIZE */
+/* IMAGE SIZE FIXED */
 .polaroid img {
-    width: 500px;
-    height: 500px;
+    width: 300px;
+    height: 300px;
     object-fit: cover;
     display: block;
 }
@@ -77,28 +86,28 @@ body {
 /* CLIP */
 .clip {
     position: absolute;
-    width: 70px;
-    height: 80px;
+    width: 60px;
+    height: 70px;
     background: #dcdcdc;
     border-radius: 6px;
-    top: -45px;
+    top: -35px;
     left: 50%;
     transform: translateX(-50%);
     box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
-/* LEFT PHOTO */
+/* Slight Tilt */
 .photo1 {
-    top: 120px;
-    left: 50%;
-    transform: translateX(-120%) rotate(-6deg);
+    transform: rotate(-5deg);
 }
 
-/* RIGHT PHOTO */
 .photo2 {
-    top: 140px;
-    left: 50%;
-    transform: translateX(20%) rotate(6deg);
+    transform: rotate(5deg);
+}
+
+/* HOVER EFFECT */
+.polaroid:hover {
+    transform: scale(1.05) rotate(0deg);
 }
 
 /* DOODLES */
@@ -123,16 +132,20 @@ body {
 
 <div class="heart-bg"></div>
 
-<!-- LEFT PHOTO -->
-<div class="polaroid photo1">
-    <div class="clip"></div>
-    <img src="image/daaman.jpeg">
-</div>
+<div class="photo-wrapper">
 
-<!-- RIGHT PHOTO -->
-<div class="polaroid photo2">
-    <div class="clip"></div>
-    <img src="image/rishu.jpeg">
+    <!-- LEFT PHOTO -->
+    <div class="polaroid photo1">
+        <div class="clip"></div>
+        <img src="image/daaman.jpeg">
+    </div>
+
+    <!-- RIGHT PHOTO -->
+    <div class="polaroid photo2">
+        <div class="clip"></div>
+        <img src="image/rishu.jpeg">
+    </div>
+
 </div>
 
 <div class="cup">☕</div>
