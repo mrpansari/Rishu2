@@ -13,42 +13,63 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    display: flex;
+    overflow: hidden;
     font-family: 'Playfair Display', serif;
+    position: relative;
 }
 
-/* LEFT SIDE */
+/* LEFT BACKGROUND */
 .left-side {
+    position: absolute;
     width: 40%;
     height: 100vh;
     background: url("image/flower.jpg") no-repeat center center;
     background-size: cover;
-    position: relative;
+    z-index: 2;
+}
+
+/* RIGHT PANEL */
+.right-side {
+    position: absolute;
+    right: 0;
+    width: 60%;
+    height: 100vh;
+    background: linear-gradient(to bottom right, #8e2a4f, #b94b68);
+    color: #f8e8e8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px;
+    z-index: 1; /* BELOW calendar */
 }
 
 /* Memories Image */
 .memories {
     position: absolute;
     top: 120px;
-    left: 260px;
-    width: 250px;
+    left: 260px; /* shifted right */
+    width: 260px;
     transform: rotate(-5deg);
     box-shadow: 0 12px 25px rgba(0,0,0,0.25);
     border-radius: 6px;
+    z-index: 5;
 }
 
-/* Calendar overlapping */
+/* Calendar */
 .calendar {
     position: absolute;
     top: 90px;
-    left: 500px;
-    width: 210px;
+    left: 420px; /* shifted right */
+    width: 220px;
     background: #f8f4ef;
     padding: 15px;
     transform: rotate(4deg);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     border-radius: 8px;
     font-size: 13px;
+    z-index: 6; /* ABOVE everything */
 }
 
 .calendar h3 {
@@ -77,32 +98,19 @@ body {
     font-weight: bold;
 }
 
-/* Decorative small hearts */
+/* Decorative heart near calendar */
 .decor-heart {
     position: absolute;
     top: 70px;
-    left: 440px;
+    left: 470px;
     font-size: 20px;
-}
-
-/* RIGHT SIDE */
-.right-side {
-    width: 60%;
-    background: linear-gradient(to bottom right, #8e2a4f, #b94b68);
-    color: #f8e8e8;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 60px;
-    position: relative;
+    z-index: 7;
 }
 
 /* Title */
 .title {
     font-family: 'Great Vibes', cursive;
-    font-size: 90px;
+    font-size: 95px;
     line-height: 1.1;
     margin-bottom: 30px;
 }
@@ -117,10 +125,10 @@ body {
 /* Heart Button */
 .heart-btn {
     margin-top: 60px;
-    width: 120px;
-    height: 110px;
+    width: 130px;
+    height: 115px;
     background: linear-gradient(to bottom, #ffb6c1, #ff8fa3);
-    clip-path: path("M60 100 C10 60 0 40 0 25 C0 10 18 0 35 0 C50 0 60 18 60 18 C60 18 70 0 85 0 C102 0 120 10 120 25 C120 40 110 60 60 100 Z");
+    clip-path: path("M65 105 C10 65 0 45 0 30 C0 15 20 0 40 0 C55 0 65 20 65 20 C65 20 75 0 95 0 C115 0 130 15 130 30 C130 45 120 65 65 105 Z");
     display: flex;
     align-items: center;
     justify-content: center;
@@ -129,11 +137,12 @@ body {
     font-weight: bold;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 10;
 }
 
 .heart-btn:hover {
     transform: scale(1.1);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.3);
 }
 
 </style>
@@ -141,42 +150,41 @@ body {
 
 <body>
 
-<!-- LEFT -->
-<div class="left-side">
+<!-- LEFT BACKGROUND -->
+<div class="left-side"></div>
 
-    <img src="image/memories.jpeg" class="memories">
+<!-- Scrapbook Elements -->
+<img src="image/memories.jpeg" class="memories">
 
-    <div class="calendar">
-        <h3>February 2026</h3>
-        <table>
-            <tr>
-                <th>S</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th>
-            </tr>
-            <tr>
-                <td></td><td></td><td></td><td></td><td></td><td></td><td>1</td>
-            </tr>
-            <tr>
-                <td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td>
-            </tr>
-            <tr>
-                <td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
-                <td class="highlight">14</td>
-                <td>15</td>
-            </tr>
-            <tr>
-                <td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td>
-            </tr>
-            <tr>
-                <td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td></td>
-            </tr>
-        </table>
-    </div>
-
-    <div class="decor-heart">💕</div>
-
+<div class="calendar">
+    <h3>February 2026</h3>
+    <table>
+        <tr>
+            <th>S</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th>
+        </tr>
+        <tr>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td>1</td>
+        </tr>
+        <tr>
+            <td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td>
+        </tr>
+        <tr>
+            <td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
+            <td class="highlight">14</td>
+            <td>15</td>
+        </tr>
+        <tr>
+            <td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td>
+        </tr>
+        <tr>
+            <td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td></td>
+        </tr>
+    </table>
 </div>
 
-<!-- RIGHT -->
+<div class="decor-heart">💕</div>
+
+<!-- RIGHT CONTENT -->
 <div class="right-side">
 
     <div class="title">
@@ -185,4 +193,15 @@ body {
 
     <div class="message">
         This Valentine's Day, I'm just grateful for us—
-        for every moment we've
+        for every moment we've shared and for choosing
+        each other every day. You're my favourite, always.
+    </div>
+
+    <div class="heart-btn" onclick="window.location.href='memories.html'">
+        CLICK<br>ME
+    </div>
+
+</div>
+
+</body>
+</html>
