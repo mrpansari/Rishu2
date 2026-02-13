@@ -22,18 +22,18 @@ body {
     position: relative;
 }
 
-/* BIG HEART BACKGROUND */
+/* SMALLER HEART BACKGROUND */
 .heart-bg {
     position: absolute;
-    width: 600px;
-    height: 600px;
+    width: 420px;        /* reduced */
+    height: 420px;       /* reduced */
     background: #e47c73;
     opacity: 0.25;
     transform: rotate(-45deg);
     top: 50%;
     left: 50%;
-    margin-top: -300px;
-    margin-left: -300px;
+    margin-top: -210px;  /* half of height */
+    margin-left: -210px; /* half of width */
     z-index: 1;
 }
 
@@ -41,26 +41,26 @@ body {
 .heart-bg::after {
     content: "";
     position: absolute;
-    width: 600px;
-    height: 600px;
+    width: 420px;        /* reduced */
+    height: 420px;       /* reduced */
     background: #e47c73;
     border-radius: 50%;
 }
 
 .heart-bg::before {
-    top: -300px;
+    top: -210px;
     left: 0;
 }
 
 .heart-bg::after {
-    left: 300px;
+    left: 210px;
     top: 0;
 }
 
 /* POLAROID STYLE */
 .polaroid {
     position: absolute;
-    width: 260px;
+    width: 240px; /* slightly reduced */
     background: white;
     padding: 15px 15px 40px 15px;
     box-shadow: 0 15px 30px rgba(0,0,0,0.2);
@@ -76,11 +76,11 @@ body {
 /* CLIP */
 .clip {
     position: absolute;
-    width: 50px;
-    height: 60px;
+    width: 45px;
+    height: 55px;
     background: #dcdcdc;
     border-radius: 6px;
-    top: -35px;
+    top: -30px;
     left: 50%;
     transform: translateX(-50%);
     box-shadow: 0 4px 6px rgba(0,0,0,0.2);
@@ -88,14 +88,14 @@ body {
 
 /* LEFT PHOTO */
 .photo1 {
-    top: 200px;
-    left: 28%;
+    top: 220px;
+    left: 32%;
     transform: rotate(-6deg);
 }
 
 /* RIGHT PHOTO */
 .photo2 {
-    top: 220px;
+    top: 240px;
     left: 48%;
     transform: rotate(6deg);
 }
@@ -103,19 +103,19 @@ body {
 /* STAR STICKERS */
 .star {
     position: absolute;
-    font-size: 40px;
+    font-size: 36px;
     color: #e47c73;
     z-index: 4;
 }
 
 .star1 {
     top: 430px;
-    left: 33%;
+    left: 36%;
 }
 
 .star2 {
     top: 450px;
-    left: 55%;
+    left: 56%;
 }
 
 /* CUP DOODLE */
