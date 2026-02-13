@@ -33,7 +33,7 @@ html, body {
     position: absolute;
     width: 8%;
     aspect-ratio: 1 / 1;
-    top: 55%;     /* adjust slightly if needed */
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     cursor: pointer;
@@ -44,14 +44,31 @@ html, body {
 <body>
 
 <div class="envelope-container">
-    <img src="image/envelope.jpg" alt="Envelope">
+    <img src="envelope.jpg" alt="Envelope">
     <div class="stamp" onclick="openLetter()"></div>
 </div>
 
 <script>
+
 function openLetter() {
-    window.location.href = "opened-letter.html";
+
+    const waxSound = new Audio("wax.mp3");
+    const paperSound = new Audio("paper.mp3");
+
+    // Play wax crack sound
+    waxSound.play();
+
+    // After slight delay, play paper sound
+    setTimeout(function() {
+        paperSound.play();
+    }, 400);
+
+    // Redirect after sounds finish
+    setTimeout(function() {
+        window.location.href = "memories.html";
+    }, 2500);
 }
+
 </script>
 
 </body>
