@@ -1,132 +1,105 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Rishu ❤️</title>
+<title>Will You Be My Valentine?</title>
 
 <style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+        background-color: #fff6f6;
+        text-align: center;
+        overflow: hidden;
+    }
 
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #ff4e8a, #ff9ecf);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
+    h1 {
+        margin-top: 60px;
+        font-size: 3rem;
+        color: #b3003c;
+        letter-spacing: 2px;
+    }
 
-.container {
-    text-align: center;
-    color: white;
-}
+    .cat-container {
+        margin-top: 20px;
+    }
 
-h1 {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-}
+    .cat-container img {
+        width: 250px;
+        height: auto;
+    }
 
-.buttons {
-    position: relative;
-    height: 150px;
-}
+    .buttons {
+        margin-top: 40px;
+        position: relative;
+    }
 
-button {
-    padding: 15px 40px;
-    font-size: 18px;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
+    button {
+        font-size: 1.5rem;
+        padding: 15px 40px;
+        border-radius: 50px;
+        border: none;
+        cursor: pointer;
+        margin: 0 20px;
+        transition: all 0.2s ease;
+    }
 
-/* YES button */
-#yesBtn {
-    background: white;
-    color: #ff4e8a;
-    margin-right: 20px;
-}
+    #yesBtn {
+        background-color: #ff4d6d;
+        color: white;
+        box-shadow: 0 5px 0 #cc3a55;
+    }
 
-/* NO button */
-#noBtn {
-    background: #ff1e56;
-    color: white;
-    position: absolute;
-    transition: left 0.2s ease, top 0.2s ease;
-}
+    #yesBtn:active {
+        transform: translateY(5px);
+        box-shadow: none;
+    }
 
-button:hover {
-    transform: scale(1.05);
-}
-
+    #noBtn {
+        background-color: #ff4d6d;
+        color: white;
+        position: absolute;
+    }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-    <h1>Rishu, will you be my Valentine? 💖</h1>
+<h1>Rishu, Will You Be My Valentine?</h1>
 
-    <div class="buttons">
-        <button id="yesBtn" onclick="goNext()">Yes 💘</button>
-        <button id="noBtn">No 😢</button>
-    </div>
+<div class="cat-container">
+    <!-- Replace cat.png with your image -->
+    <img src="cat.png" alt="Cute Cat">
+</div>
+
+<div class="buttons">
+    <button id="yesBtn">YES</button>
+    <button id="noBtn">NO</button>
 </div>
 
 <script>
+    const noBtn = document.getElementById("noBtn");
 
-const noBtn = document.getElementById("noBtn");
-let attempts = 0;
+    document.addEventListener("mousemove", function(e) {
+        const rect = noBtn.getBoundingClientRect();
+        const distance = Math.sqrt(
+            Math.pow(e.clientX - (rect.left + rect.width / 2), 2) +
+            Math.pow(e.clientY - (rect.top + rect.height / 2), 2)
+        );
 
-/* Initial placement */
-noBtn.style.left = "200px";
-noBtn.style.top = "0px";
+        if (distance < 120) {
+            const randomX = Math.random() * (window.innerWidth - 150);
+            const randomY = Math.random() * (window.innerHeight - 100);
+            noBtn.style.left = randomX + "px";
+            noBtn.style.top = randomY + "px";
+        }
+    });
 
-noBtn.addEventListener("mouseover", moveButton);
-
-function moveButton() {
-
-    const padding = 20;
-    const btnWidth = noBtn.offsetWidth;
-    const btnHeight = noBtn.offsetHeight;
-
-    const maxX = window.innerWidth - btnWidth - padding;
-    const maxY = window.innerHeight - btnHeight - padding;
-
-    let newX, newY;
-
-    // First 6 tries → small movement
-    if (attempts < 6) {
-        const currentX = noBtn.offsetLeft;
-        const currentY = noBtn.offsetTop;
-
-        newX = currentX + (Math.random() * 200 - 100);
-        newY = currentY + (Math.random() * 150 - 75);
-    } 
-    // After that → full random dodge
-    else {
-        newX = Math.random() * maxX;
-        newY = Math.random() * maxY;
-    }
-
-    // Keep inside screen boundaries
-    newX = Math.max(padding, Math.min(newX, maxX));
-    newY = Math.max(padding, Math.min(newY, maxY));
-
-    noBtn.style.left = newX + "px";
-    noBtn.style.top = newY + "px";
-
-    attempts++;
-}
-
-/* YES button action */
-function goNext() {
-    window.location.href = "letter.html"; 
-    // change to your next page file name
-}
-
+    document.getElementById("yesBtn").addEventListener("click", function() {
+    window.location.href = "letter.html";
+});
 </script>
 
 </body>
