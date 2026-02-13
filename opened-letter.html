@@ -16,8 +16,6 @@ body {
     overflow: hidden;
     font-family: 'Playfair Display', serif;
     position: relative;
-
-    /* Fade transition */
     transition: opacity 0.8s ease;
 }
 
@@ -96,13 +94,32 @@ body {
 }
 
 .calendar td {
-    padding: 3px;
+    padding: 6px;
+    position: relative;
 }
 
 /* Highlight 14 */
 .highlight {
     color: #b3375b;
     font-weight: bold;
+    position: relative;
+}
+
+/* Tiny hearts inside 14 */
+.mini-heart {
+    font-size: 8px;
+    position: absolute;
+    color: #ff5c8a;
+}
+
+.mini-heart.first {
+    top: 2px;
+    right: 4px;
+}
+
+.mini-heart.second {
+    bottom: 2px;
+    left: 4px;
 }
 
 /* Decorative heart near calendar */
@@ -177,7 +194,11 @@ body {
         </tr>
         <tr>
             <td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
-            <td class="highlight">14</td>
+            <td class="highlight">
+                14
+                <span class="mini-heart first">💕</span>
+                <span class="mini-heart second">💕</span>
+            </td>
             <td>15</td>
         </tr>
         <tr>
