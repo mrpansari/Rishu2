@@ -11,7 +11,6 @@ body {
     height: 100vh;
     font-family: 'Segoe UI', sans-serif;
 
-    /* grid background */
     background-color: #fffaf7;
     background-image: 
         linear-gradient(#e8e2dc 1px, transparent 1px),
@@ -22,7 +21,7 @@ body {
     position: relative;
 }
 
-/* SMALLER HEART BACKGROUND */
+/* SMALLER HEART */
 .heart-bg {
     position: absolute;
     width: 420px;
@@ -57,30 +56,33 @@ body {
     top: 0;
 }
 
-/* POLAROID STYLE (UNCHANGED SIZE) */
+/* POLAROID FRAME */
 .polaroid {
     position: absolute;
-    width: 260px;  /* original size restored */
+    width: 540px; /* frame slightly bigger than image */
     background: white;
-    padding: 15px 15px 40px 15px;
+    padding: 20px 20px 60px 20px;
     box-shadow: 0 15px 30px rgba(0,0,0,0.2);
     z-index: 3;
     transition: 0.3s ease;
 }
 
+/* IMAGE FIXED SIZE */
 .polaroid img {
-    width: 100%;
+    width: 500px;
+    height: 500px;
+    object-fit: cover; /* prevents stretching */
     display: block;
 }
 
 /* CLIP */
 .clip {
     position: absolute;
-    width: 50px;
-    height: 60px;
+    width: 60px;
+    height: 70px;
     background: #dcdcdc;
     border-radius: 6px;
-    top: -35px;
+    top: -40px;
     left: 50%;
     transform: translateX(-50%);
     box-shadow: 0 4px 6px rgba(0,0,0,0.2);
@@ -88,19 +90,19 @@ body {
 
 /* LEFT PHOTO */
 .photo1 {
-    top: 200px;
-    left: 28%;
-    transform: rotate(-6deg);
+    top: 120px;
+    left: 10%;
+    transform: rotate(-5deg);
 }
 
 /* RIGHT PHOTO */
 .photo2 {
-    top: 220px;
-    left: 48%;
-    transform: rotate(6deg);
+    top: 140px;
+    right: 10%;
+    transform: rotate(5deg);
 }
 
-/* STAR STICKERS */
+/* STARS */
 .star {
     position: absolute;
     font-size: 40px;
@@ -109,34 +111,33 @@ body {
 }
 
 .star1 {
-    top: 430px;
-    left: 33%;
+    bottom: 120px;
+    left: 30%;
 }
 
 .star2 {
-    top: 450px;
-    left: 55%;
+    bottom: 140px;
+    right: 30%;
 }
 
-/* CUP DOODLE */
+/* DOODLES */
 .cup {
     position: absolute;
-    bottom: 100px;
-    left: 80px;
+    bottom: 60px;
+    left: 60px;
     font-size: 60px;
     color: #e47c73;
 }
 
-/* CHERRY STICKER */
 .cherry {
     position: absolute;
-    bottom: 80px;
-    right: 80px;
+    bottom: 60px;
+    right: 60px;
     font-size: 70px;
     z-index: 5;
 }
 
-/* Optional hover effect */
+/* HOVER */
 .polaroid:hover {
     transform: scale(1.05) rotate(0deg);
 }
