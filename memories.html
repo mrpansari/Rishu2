@@ -21,18 +21,17 @@ body {
     position: relative;
 }
 
-/* SMALLER HEART */
+/* HEART BACKGROUND */
 .heart-bg {
     position: absolute;
-    width: 420px;
-    height: 420px;
+    width: 450px;
+    height: 450px;
     background: #e47c73;
     opacity: 0.25;
     transform: rotate(-45deg);
     top: 50%;
     left: 50%;
-    margin-top: -210px;
-    margin-left: -210px;
+    transform: translate(-50%, -50%) rotate(-45deg);
     z-index: 1;
 }
 
@@ -40,28 +39,28 @@ body {
 .heart-bg::after {
     content: "";
     position: absolute;
-    width: 420px;
-    height: 420px;
+    width: 450px;
+    height: 450px;
     background: #e47c73;
     border-radius: 50%;
 }
 
 .heart-bg::before {
-    top: -210px;
+    top: -225px;
     left: 0;
 }
 
 .heart-bg::after {
-    left: 210px;
+    left: 225px;
     top: 0;
 }
 
 /* POLAROID FRAME */
 .polaroid {
     position: absolute;
-    width: 330px; /* frame slightly bigger than image */
+    width: 540px; /* frame slightly larger than image */
     background: white;
-    padding: 20px 20px 60px 20px;
+    padding: 20px 20px 70px 20px;
     box-shadow: 0 15px 30px rgba(0,0,0,0.2);
     z-index: 3;
     transition: 0.3s ease;
@@ -69,58 +68,37 @@ body {
 
 /* IMAGE FIXED SIZE */
 .polaroid img {
-    width: 300px;
-    height: 300px;
-    object-fit: cover; /* prevents stretching */
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
     display: block;
 }
 
 /* CLIP */
 .clip {
     position: absolute;
-    width: 60px;
-    height: 70px;
+    width: 70px;
+    height: 80px;
     background: #dcdcdc;
     border-radius: 6px;
-    top: -40px;
+    top: -45px;
     left: 50%;
     transform: translateX(-50%);
     box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
-//* LEFT PHOTO */
+/* LEFT PHOTO */
 .photo1 {
-    top: 130px;
-    left: 50%;          /* moved inward */
-    transform: rotate(-6deg);
-    /* z-index: 4;         /* slightly above */ 
+    top: 120px;
+    left: 50%;
+    transform: translateX(-120%) rotate(-6deg);
 }
 
 /* RIGHT PHOTO */
 .photo2 {
-    top: 150px;
-    right: 42%;          /* closer to left photo */
-    transform: rotate(6deg);
-    /* z-index: 3; */
-}
-
-
-/* STARS */
-.star {
-    position: absolute;
-    font-size: 40px;
-    color: #e47c73;
-    z-index: 4;
-}
-
-.star1 {
-    bottom: 120px;
-    left: 30%;
-}
-
-.star2 {
-    bottom: 140px;
-    right: 30%;
+    top: 140px;
+    left: 50%;
+    transform: translateX(20%) rotate(6deg);
 }
 
 /* DOODLES */
@@ -137,12 +115,6 @@ body {
     bottom: 60px;
     right: 60px;
     font-size: 70px;
-    z-index: 5;
-}
-
-/* HOVER */
-.polaroid:hover {
-    transform: scale(1.05) rotate(0deg);
 }
 </style>
 </head>
@@ -163,11 +135,6 @@ body {
     <img src="image/rishu.jpeg">
 </div>
 
-<!-- Stars -->
-<!-- <div class="star star1">★</div>
-<div class="star star2">★</div> -->
-
-<!-- Cute doodles -->
 <div class="cup">☕</div>
 <div class="cherry">🍒</div>
 
