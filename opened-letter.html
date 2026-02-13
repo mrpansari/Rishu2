@@ -1,208 +1,107 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Valentine's Day ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
 
-html, body {
+body {
     margin: 0;
     padding: 0;
-    height: 100%;
-    font-family: 'Playfair Display', serif;
-    background: radial-gradient(circle at top left, #8e0e2f, #1a0010);
-    overflow: hidden;
-    color: white;
-}
-
-/* Main layout */
-.container {
-    display: flex;
     height: 100vh;
-    padding: 50px;
-    box-sizing: border-box;
-}
-
-/* LEFT SIDE */
-.left {
-    width: 40%;
-    position: relative;
-}
-
-/* Polaroid */
-.polaroid {
-    width: 260px;
-    background: white;
-    padding: 10px 10px 30px 10px;
-    transform: rotate(-5deg);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-}
-
-.polaroid img {
-    width: 100%;
-    display: block;
-}
-
-.polaroid span {
-    display: block;
-    text-align: center;
-    margin-top: 10px;
-    font-weight: bold;
-    color: black;
-}
-
-/* Calendar */
-.calendar {
-    position: absolute;
-    top: 120px;
-    left: 180px;
-    width: 260px;
-    background: white;
-    color: black;
-    padding: 15px;
-    transform: rotate(4deg);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
-}
-
-.calendar h3 {
-    margin: 0;
-    text-align: center;
-}
-
-.calendar table {
-    width: 100%;
-    text-align: center;
-    margin-top: 10px;
-    font-size: 14px;
-}
-
-/* RIGHT SIDE */
-.right {
-    width: 60%;
+    overflow: hidden;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 40px;
-}
-
-/* Heading */
-.heading {
-    font-family: 'Great Vibes', cursive;
-    font-size: 70px;
-    line-height: 1.1;
-}
-
-.heading span {
     font-family: 'Playfair Display', serif;
-    font-size: 55px;
-    display: block;
+}
+
+/* LEFT IMAGE SECTION */
+.left-side {
+    width: 40%;
+    height: 100vh;
+    background: url("image/flower.jpg") no-repeat center center;
+    background-size: cover;
+}
+
+/* RIGHT CONTENT SECTION */
+.right-side {
+    width: 60%;
+    background: linear-gradient(to right, #7b1e3c, #b3375b);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: white;
+    text-align: center;
+    padding: 40px;
+}
+
+/* Title */
+.title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 80px;
+    line-height: 1.1;
+    margin-bottom: 20px;
 }
 
 /* Message */
 .message {
-    margin-top: 20px;
-    font-size: 18px;
-    max-width: 500px;
-    opacity: 0.9;
+    font-size: 20px;
+    line-height: 1.7;
+    max-width: 650px;
+    margin: 0 auto;
 }
 
-/* Heart button */
+/* Heart Button */
 .heart-btn {
-    margin-top: 40px;
-    width: 120px;
-    height: 120px;
-    background: #ff4e8a;
-    position: relative;
-    transform: rotate(-45deg);
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.heart-btn:before,
-.heart-btn:after {
-    content: "";
-    width: 120px;
-    height: 120px;
-    background: #ff4e8a;
-    border-radius: 50%;
     position: absolute;
-}
-
-.heart-btn:before {
-    top: -60px;
-    left: 0;
-}
-
-.heart-btn:after {
-    left: 60px;
-    top: 0;
-}
-
-.heart-text {
-    position: absolute;
-    top: 35%;
+    bottom: 40px;
     left: 50%;
-    transform: rotate(45deg) translate(-50%, -50%);
-    transform-origin: center;
+    transform: translateX(-50%);
+    width: 110px;
+    height: 100px;
+    background: #ffb6c1;
+    clip-path: path("M55 90 C10 55 0 35 0 20 C0 5 15 0 30 0 C45 0 55 15 55 15 C55 15 65 0 80 0 C95 0 110 5 110 20 C110 35 100 55 55 90 Z");
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 14px;
+    color: #7b1e3c;
     font-weight: bold;
-    text-align: center;
-    width: 100%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
 .heart-btn:hover {
-    transform: rotate(-45deg) scale(1.1);
+    transform: translateX(-50%) scale(1.1);
 }
 
 </style>
 </head>
+
 <body>
 
-<div class="container">
+<div class="left-side"></div>
 
-    <!-- LEFT SIDE -->
-    <div class="left">
+<div class="right-side">
 
-        <div class="polaroid">
-            <img src="image/memory.jpeg" alt="Memory">
-            <span>our moments ❤️</span>
-        </div>
-
-        <div class="calendar">
-            <h3>February 2026</h3>
-            <table>
-                <tr><td>Sun</td><td>Mon</td><td>Tue</td><td>Wed</td><td>Thu</td><td>Fri</td><td>Sat</td></tr>
-                <tr><td></td><td></td><td></td><td></td><td></td><td></td><td>1</td></tr>
-                <tr><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
-                <tr><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td style="color:red;">14 ❤️</td><td>15</td></tr>
-                <tr><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td></tr>
-                <tr><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td></td></tr>
-            </table>
-        </div>
-
-    </div>
-
-    <!-- RIGHT SIDE -->
-    <div class="right">
-        <div class="heading">
-            Happy
-            <span>VALENTINE'S DAY</span>
+    <div>
+        <div class="title">
+            Happy <br> Valentine’s Day
         </div>
 
         <div class="message">
-            This Valentine's Day, I'm just grateful for us—
-            for every moment we've shared and for choosing
-            each other every day.  
-            You're my favourite, always. ❤️
+            This Valentine’s Day, I’m just grateful for us—
+            for every moment we’ve shared and for choosing
+            each other every day. You’re my favourite, always.
         </div>
+    </div>
 
-        <div class="heart-btn" onclick="alert('I love you Rishu ❤️')">
-            <div class="heart-text">CLICK<br>ME</div>
-        </div>
-
+    <div class="heart-btn" onclick="window.location.href='memories.html'">
+        CLICK<br>ME
     </div>
 
 </div>
