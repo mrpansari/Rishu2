@@ -25,15 +25,15 @@ body {
 /* SMALLER HEART BACKGROUND */
 .heart-bg {
     position: absolute;
-    width: 420px;        /* reduced */
-    height: 420px;       /* reduced */
+    width: 420px;
+    height: 420px;
     background: #e47c73;
     opacity: 0.25;
     transform: rotate(-45deg);
     top: 50%;
     left: 50%;
-    margin-top: -210px;  /* half of height */
-    margin-left: -210px; /* half of width */
+    margin-top: -210px;
+    margin-left: -210px;
     z-index: 1;
 }
 
@@ -41,8 +41,8 @@ body {
 .heart-bg::after {
     content: "";
     position: absolute;
-    width: 420px;        /* reduced */
-    height: 420px;       /* reduced */
+    width: 420px;
+    height: 420px;
     background: #e47c73;
     border-radius: 50%;
 }
@@ -57,10 +57,10 @@ body {
     top: 0;
 }
 
-/* POLAROID STYLE */
+/* POLAROID STYLE (UNCHANGED SIZE) */
 .polaroid {
     position: absolute;
-    width: 240px; /* slightly reduced */
+    width: 260px;  /* original size restored */
     background: white;
     padding: 15px 15px 40px 15px;
     box-shadow: 0 15px 30px rgba(0,0,0,0.2);
@@ -76,11 +76,11 @@ body {
 /* CLIP */
 .clip {
     position: absolute;
-    width: 45px;
-    height: 55px;
+    width: 50px;
+    height: 60px;
     background: #dcdcdc;
     border-radius: 6px;
-    top: -30px;
+    top: -35px;
     left: 50%;
     transform: translateX(-50%);
     box-shadow: 0 4px 6px rgba(0,0,0,0.2);
@@ -88,14 +88,14 @@ body {
 
 /* LEFT PHOTO */
 .photo1 {
-    top: 220px;
-    left: 32%;
+    top: 200px;
+    left: 28%;
     transform: rotate(-6deg);
 }
 
 /* RIGHT PHOTO */
 .photo2 {
-    top: 240px;
+    top: 220px;
     left: 48%;
     transform: rotate(6deg);
 }
@@ -103,19 +103,19 @@ body {
 /* STAR STICKERS */
 .star {
     position: absolute;
-    font-size: 36px;
+    font-size: 40px;
     color: #e47c73;
     z-index: 4;
 }
 
 .star1 {
     top: 430px;
-    left: 36%;
+    left: 33%;
 }
 
 .star2 {
     top: 450px;
-    left: 56%;
+    left: 55%;
 }
 
 /* CUP DOODLE */
