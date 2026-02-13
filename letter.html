@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Letter For You ❤️</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #ff9aa2, #ff6f91);
+        font-family: 'Georgia', serif;
+        overflow: hidden;
+    }
+
+    .envelope-wrapper {
+        position: relative;
+        width: 500px;
+        height: 300px;
+        perspective: 1000px;
+    }
+
+    .envelope {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background: #f7a6b8;
+        border-radius: 6px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+
+    /* Top Flap */
+    .flap {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 150px;
+        background: #e48aa0;
+        clip-path: polygon(0 0, 50% 100%, 100% 0);
+        transform-origin: top;
+        transition: transform 1s ease;
+        z-index: 3;
+    }
+
+    /* Letter */
+    .letter {
+        position: absolute;
+        bottom: 0;
+        width: 90%;
+        height: 240px;
+        left: 5%;
+        background: white;
+        border-radius: 4px;
+        padding: 20px;
+        box-sizing: border-box;
+        transform: translateY(100%);
+        transition: transform 1s ease 0.5s;
+        z-index: 1;
+    }
+
+    .letter h2 {
+        margin-top: 0;
+        color: #ff4d6d;
+    }
+
+    .stamp {
+        position: absolute;
+        top: 110px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 80px;
+        background: #b33951;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 4;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        transition: transform 0.3s;
+    }
+
+    .stamp:hover {
+        transform: translateX(-50%) scale(1.1);
+    }
+
+    /* Open State */
+    .open .flap {
+        transform: rotateX(-180deg);
+    }
+
+    .open .letter {
+        transform: translateY(-40px);
+    }
+</style>
+</head>
+
+<body>
+
+<div class="envelope-wrapper" id="envelope">
+    <div class="envelope">
+        <div class="flap"></div>
+
+        <div class="letter">
+            <h2>My Dearest Rishu ❤️</h2>
+            <p>
+                From the moment you walked into my life, everything became brighter.
+                This little website is just a tiny reflection of how much you mean to me.
+            </p>
+            <p>
+                Happy Valentine’s Day 💕
+            </p>
+        </div>
+
+        <div class="stamp" id="stamp">
+            OPEN
+        </div>
+    </div>
+</div>
+
+<script>
+    const stamp = document.getElementById("stamp");
+    const envelope = document.getElementById("envelope");
+
+    const waxSound = new Audio("wax.mp3");
+    const paperSound = new Audio("paper.mp3");
+
+    stamp.addEventListener("click", function() {
+        waxSound.play();
+
+        setTimeout(() => {
+            envelope.classList.add("open");
+            paperSound.play();
+        }, 400);
+
+        stamp.style.display = "none";
+
+        // Go to memory page after 4 seconds
+        setTimeout(() => {
+            window.location.href = "memories.html";
+        }, 4000);
+    });
+</script>
+
+
+</body>
+</html>
