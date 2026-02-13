@@ -1,74 +1,92 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Open Me ❤️</title>
+
 <style>
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        overflow: hidden;
+        background: url("envelope.jpg") no-repeat center center;
+        background-size: cover;
+        position: relative;
+    }
 
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    /* Invisible clickable stamp area */
+    .stamp-click {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        cursor: pointer;
 
-/* Envelope container */
-.envelope-container {
-    position: relative;
-    width: 90vw;
-    max-height: 90vh;
-}
+        /* Adjust these values if needed */
+        top: 52%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 
-/* Image */
-.envelope-container img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
+    /* Flap animation overlay */
+    .flap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        background: url("envelope.jpg") no-repeat center top;
+        background-size: cover;
+        transform-origin: top;
+        transition: transform 1.2s ease;
+        z-index: 5;
+    }
 
-/* Stamp clickable area */
-.stamp {
-    position: absolute;
-    width: 8%;
-    aspect-ratio: 1 / 1;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    cursor: pointer;
-}
+    .open .flap {
+        transform: rotateX(-180deg);
+    }
+
+    .fade-out {
+        animation: fadeOut 1s forwards;
+    }
+
+    @keyframes fadeOut {
+        to {
+            opacity: 0;
+        }
+    }
 
 </style>
 </head>
+
 <body>
 
-<div class="envelope-container">
-    <img src="envelope.jpg" alt="Envelope">
-    <div class="stamp" onclick="openLetter()"></div>
-</div>
+<div class="flap" id="flap"></div>
+<div class="stamp-click" id="stamp"></div>
 
 <script>
-
-function openLetter() {
+    const stamp = document.getElementById("stamp");
+    const flap = document.getElementById("flap");
 
     const waxSound = new Audio("sound/wax.mp3");
     const paperSound = new Audio("sound/paper.mp3");
 
-    // Play wax crack sound
-    waxSound.play();
+    stamp.addEventListener("click", function() {
 
-    // After slight delay, play paper sound
-    setTimeout(function() {
-        paperSound.play();
-    }, 400);
+        waxSound.play();
 
-    // Redirect after sounds finish
-    setTimeout(function() {
-        window.location.href = "memories.html";
-    }, 2500);
-}
+        setTimeout(() => {
+            flap.style.transform = "rotateX(-180deg)";
+            paperSound.play();
+        }, 400);
 
+        // After animation → go to memory page
+        setTimeout(() => {
+            window.location.href = "memories.html";
+        }, 2500);
+    });
 </script>
 
 </body>
