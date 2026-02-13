@@ -12,41 +12,39 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
 }
 
-/* Wrapper keeps image ratio intact */
-.wrapper {
+/* Envelope container */
+.envelope-container {
     position: relative;
-    max-width: 100%;
-    max-height: 100%;
+    width: 90vw;
+    max-height: 90vh;
 }
 
-/* The letter image */
-.wrapper img {
+/* Image */
+.envelope-container img {
     width: 100%;
-    height: auto; /* VERY IMPORTANT */
+    height: auto;
     display: block;
 }
 
-/* Clickable stamp area */
+/* Stamp clickable area */
 .stamp {
     position: absolute;
-    width: 12%;       /* Responsive sizing */
-    aspect-ratio: 1/1;
-    bottom: 25%;      /* Adjust this slightly if needed */
+    width: 8%;
+    aspect-ratio: 1 / 1;
+    top: 55%;     /* adjust slightly if needed */
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
     cursor: pointer;
 }
 
 </style>
 </head>
-
 <body>
 
-<div class="wrapper">
-    <img src="letter.jpg" alt="Letter">
+<div class="envelope-container">
+    <img src="letter.jpg" alt="Envelope">
     <div class="stamp" onclick="openLetter()"></div>
 </div>
 
