@@ -88,19 +88,22 @@ body {
     box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
-/* LEFT PHOTO */
+//* LEFT PHOTO */
 .photo1 {
-    top: 120px;
-    left: 10%;
-    transform: rotate(-5deg);
+    top: 130px;
+    left: 30%;          /* moved inward */
+    transform: rotate(-6deg);
+    z-index: 4;         /* slightly above */
 }
 
 /* RIGHT PHOTO */
 .photo2 {
-    top: 140px;
-    right: 10%;
-    transform: rotate(5deg);
+    top: 150px;
+    left: 42%;          /* closer to left photo */
+    transform: rotate(6deg);
+    z-index: 3;
 }
+
 
 /* STARS */
 .star {
