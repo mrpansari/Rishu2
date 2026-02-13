@@ -13,20 +13,68 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    overflow: hidden;
     display: flex;
     font-family: 'Playfair Display', serif;
 }
 
-/* LEFT IMAGE SECTION */
+/* LEFT SIDE (40%) */
 .left-side {
     width: 40%;
     height: 100vh;
     background: url("image/flower.jpg") no-repeat center center;
     background-size: cover;
+    position: relative;
+    padding: 40px 20px;
+    box-sizing: border-box;
 }
 
-/* RIGHT CONTENT SECTION */
+/* Calendar (NOW ON TOP) */
+.calendar {
+    width: 220px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+.calendar h3 {
+    margin: 0 0 10px 0;
+    text-align: center;
+    font-weight: 600;
+}
+
+.calendar table {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.calendar th {
+    font-size: 11px;
+    color: #b3375b;
+}
+
+.calendar td {
+    padding: 4px;
+}
+
+/* Highlight 14 */
+.highlight {
+    background: #ffb6c1;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+/* Memories Image (NOW BELOW CALENDAR) */
+.memories {
+    width: 240px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+/* RIGHT SIDE (60%) */
 .right-side {
     width: 60%;
     background: linear-gradient(to right, #7b1e3c, #b3375b);
@@ -84,8 +132,42 @@ body {
 
 <body>
 
-<div class="left-side"></div>
+<!-- LEFT SIDE -->
+<div class="left-side">
 
+    <!-- Calendar on top -->
+    <div class="calendar">
+        <h3>February 2026</h3>
+        <table>
+            <tr>
+                <th>S</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th>
+            </tr>
+            <tr>
+                <td></td><td></td><td></td><td></td><td></td><td></td><td>1</td>
+            </tr>
+            <tr>
+                <td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td>
+            </tr>
+            <tr>
+                <td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
+                <td class="highlight">14</td>
+                <td>15</td>
+            </tr>
+            <tr>
+                <td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td>
+            </tr>
+            <tr>
+                <td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td></td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Memories image below -->
+    <img src="image/memories.jpeg" class="memories">
+
+</div>
+
+<!-- RIGHT SIDE -->
 <div class="right-side">
 
     <div>
