@@ -14,6 +14,7 @@
         background: url("image/envelope.jpg") no-repeat center center;
         background-size: cover;
         position: relative;
+        perspective: 1200px; /* REQUIRED for 3D */
     }
 
     /* Invisible clickable stamp area */
@@ -24,13 +25,14 @@
         border-radius: 50%;
         cursor: pointer;
 
-        /* Adjust these values if needed */
         top: 52%;
         left: 50%;
         transform: translate(-50%, -50%);
+
+        z-index: 10; /* Must be above flap */
     }
 
-    /* Flap animation overlay */
+    /* Flap animation */
     .flap {
         position: absolute;
         top: 0;
@@ -42,20 +44,7 @@
         transform-origin: top;
         transition: transform 1.2s ease;
         z-index: 5;
-    }
-
-    .open .flap {
-        transform: rotateX(-180deg);
-    }
-
-    .fade-out {
-        animation: fadeOut 1s forwards;
-    }
-
-    @keyframes fadeOut {
-        to {
-            opacity: 0;
-        }
+        backface-visibility: hidden;
     }
 
 </style>
@@ -75,14 +64,19 @@
 
     stamp.addEventListener("click", function() {
 
-        waxSound.play();
+        // Prevent double clicking
+        stamp.style.pointerEvents = "none";
 
+        // Play wax sound
+        waxSound.play().catch(() => {});
+
+        // After wax sound starts → open flap + paper sound
         setTimeout(() => {
             flap.style.transform = "rotateX(-180deg)";
-            paperSound.play();
+            paperSound.play().catch(() => {});
         }, 400);
 
-        // After animation → go to memory page
+        // Redirect after animation
         setTimeout(() => {
             window.location.href = "opened-letter.html";
         }, 2500);
